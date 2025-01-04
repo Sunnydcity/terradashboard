@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terra Balance Financial Dashboard - Visualize key financial data for agricultural sustainability.">
+    <meta name="keywords" content="Dashboard, Financial Data, Agriculture, Terra Balance, Sustainability, Sales, Profits, Expenses, Grants">
+    <meta name="author" content="Terra Balance Team">
+    <title>Terra Balance Dashboard</title>
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Google Fonts (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Plotly.js (Charting Library) -->
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Terra Balance Financial Dashboard</h1>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><button id="refreshData" aria-label="Refresh financial data">Refresh Data</button></li>
+                <li><button id="themeToggle" aria-label="Switch theme mode">Switch to Dark Mode</button></li>
+                <li><button id="downloadReport" aria-label="Download financial report">Download Report</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Key Performance Indicators (KPIs) Section -->
+        <section id="kpis" aria-labelledby="kpisHeader">
+            <h2 id="kpisHeader">Key Performance Indicators</h2>
+            <div class="kpi" id="totalSales" role="region" aria-labelledby="totalSalesTitle">
+                <h3 id="totalSalesTitle">Total Sales</h3>
+                <p>$0</p>
+            </div>
+            <div class="kpi" id="totalProfits" role="region" aria-labelledby="totalProfitsTitle">
+                <h3 id="totalProfitsTitle">Total Profits</h3>
+                <p>$0</p>
+            </div>
+            <div class="kpi" id="growthRate" role="region" aria-labelledby="growthRateTitle">
+                <h3 id="growthRateTitle">Growth Rate</h3>
+                <p>0%</p>
+            </div>
+        </section>
+
+        <!-- Scraped Data Section -->
+        <section id="scrapedData" aria-labelledby="scrapedDataHeader">
+            <h2 id="scrapedDataHeader">Scraped Data</h2>
+            <div id="scrapedContent" role="status" aria-live="polite">Loading data...</div>
+        </section>
+
+        <!-- Data Visualization Charts Section -->
+        <section id="charts" aria-labelledby="chartsHeader">
+            <h2 id="chartsHeader">Data Visualizations</h2>
+            
+            <!-- Chart Containers (Sales, Expenses, Profits, etc.) -->
+            <div class="chart-container">
+                <div id="salesChart" class="chart" role="figure" aria-labelledby="salesChartCaption">
+                    <figcaption id="salesChartCaption">Sales Data</figcaption>
+                </div>
+                <div id="expensesChart" class="chart" role="figure" aria-labelledby="expensesChartCaption">
+                    <figcaption id="expensesChartCaption">Expenses Breakdown</figcaption>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div id="profitsChart" class="chart" role="figure" aria-labelledby="profitsChartCaption">
+                    <figcaption id="profitsChartCaption">Profits Over Time</figcaption>
+                </div>
+                <div id="staffPaymentsChart" class="chart" role="figure" aria-labelledby="staffPaymentsChartCaption">
+                    <figcaption id="staffPaymentsChartCaption">Staff Payments</figcaption>
+                </div>
+                <div id="grantFundingChart" class="chart" role="figure" aria-labelledby="grantFundingChartCaption">
+                    <figcaption id="grantFundingChartCaption">Grant Funding</figcaption>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Terra Balance - Empowering Farmers</p>
+        <nav aria-label="Footer navigation">
+            <ul class="inline-list">
+                <li><a href="privacy-policy.html" aria-label="View Privacy Policy">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html" aria-label="View Terms of Service">Terms of Service</a></li>
+                <li><a href="contact.html" aria-label="Contact Us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="js/dashboard.js" defer></script>
+
+</body>
+
+</html>
